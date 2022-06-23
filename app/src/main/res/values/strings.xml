@@ -32,6 +32,7 @@
     <string name="ru" translatable="false">Russian (русский)</string>
     <string name="fr" translatable="false">French (Français)</string>
     <string name="ta" translatable="false">Tamil (தமிழ்)</string>
+    <string name="sat" translatable="false">Santali (ᱥᱟᱱᱛᱟᱲᱤ)</string>
     <string name="backspace" translatable="false">backspace</string>
 
 </resources>

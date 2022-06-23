@@ -1,8 +1,5 @@
 package com.shivtechs.multilingualcalculator
 
-/*import com.apptracker.android.listener.AppModuleListener
-import com.apptracker.android.track.AppTracker*/
-
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MultiLingual Calculator</string>
+    <string name="one">᱑</string>
+    <string name="two">᱒</string>
+    <string name="three">᱓</string>
+    <string name="four">᱔</string>
+    <string name="nine">᱙</string>
+    <string name="five">᱕</string>
+    <string name="seven">᱗</string>
+    <string name="six">᱖</string>
+    <string name="eight">᱘</string>
+    <string name="zero">᱐</string>
+    <string name="dot">.</string>
+    <string name="cut">ᱥᱟᱯᱷᱟ</string>
+    <string name="change_language">ᱟᱲᱟᱝ ᱵᱚᱫᱚᱞ ᱢᱮ</string>
+    <string name="cancel">ᱵᱟᱹᱰᱨᱟ</string>
+</resources>

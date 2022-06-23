@@ -9,6 +9,7 @@
 <!--        <item>@string/tr</item>-->
         <item>@string/ta</item>
         <item>@string/hi</item>
+        <item>@string/sat</item>
     </string-array>
 
     <string-array name="languages_code_array">
@@ -20,5 +21,6 @@
 <!--        <item>"tr"</item>-->
         <item>"ta"</item>
         <item>"hi"</item>
+        <item>"sat"</item>
     </string-array>
 </resources>
