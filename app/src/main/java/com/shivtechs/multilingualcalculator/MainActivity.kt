@@ -133,12 +133,12 @@ class MainActivity : AppCompatActivity() {
                 .show()
         }
 
-        backspace.setOnClickListener {
+        cut.setOnClickListener {
             data = data.dropLast(1)
             num1.text = num1.text.toString().dropLast(1)
         }
 
-        cut.setOnClickListener {
+        cut.setOnLongClickListener {
             data = ""
             num1.text = ""
             num2.text = ""
@@ -146,6 +146,7 @@ class MainActivity : AppCompatActivity() {
             num2data = 0.0
             result = 0.0
             operationTxt.text = ""
+            false
         }
 
         equal.setOnClickListener {
@@ -366,6 +367,7 @@ class MainActivity : AppCompatActivity() {
                 "x" -> result = num2data * num1data
                 "+" -> result = num2data + num1data
                 "-" -> result = num2data - num1data
+                "%" -> result = num2data * num1data / 100
             }
             //convert the result in to Locale Languauge
             for (i in result.toString()) {
