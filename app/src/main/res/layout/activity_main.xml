@@ -6,10 +6,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:weightSum="1"
+    android:id="@+id/activityBackground"
     tools:context=".MainActivity">
 
     <!--Screen-->
     <LinearLayout
+        android:id="@+id/backScreen"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.4"
@@ -24,6 +26,7 @@
             app:autoSizeTextType="uniform"
             android:layout_weight="0.333"
             android:layout_marginTop="15dp"
+            android:maxLength="9"
             android:gravity="right" />
 
         <TextView
@@ -32,6 +35,7 @@
             android:layout_height="0dp"
             app:autoSizeTextType="uniform"
             android:gravity="right"
+            android:maxLength="9"
             android:layout_weight="0.333" />
 
         <TextView
@@ -40,6 +44,7 @@
             android:layout_height="0dp"
             app:autoSizeTextType="uniform"
             android:gravity="right"
+            android:maxLength="9"
             android:layout_weight="0.333" />
 
     </LinearLayout>
@@ -52,14 +57,14 @@
         android:weightSum="1">
 
         <ImageButton
-            android:id="@+id/feedBack"
+            android:id="@+id/options"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:background="@drawable/opreation_selector_drawable"
             android:fontFamily="@font/biryani_extrabold"
             android:textSize="25sp"
-            android:src="@drawable/ic_feedback_black_24dp"/>
+            android:src="@drawable/ic_settings_black_24dp" />
 
         <ImageButton
             android:id="@+id/translateTool"
@@ -245,7 +250,7 @@
             android:fontFamily="@font/biryani_extrabold"
             android:onClick="clickerOperation"
             android:text="@string/minus"
-            android:textSize="30sp" />
+            android:textSize="45sp" />
 
     </LinearLayout>
     <!--Line5-->
@@ -297,9 +302,16 @@
             android:fontFamily="@font/biryani_extrabold"
             android:onClick="clickerOperation"
             android:text="@string/plus"
-            android:textSize="30sp" />
+            android:textSize="45sp" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/banner_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 
 </LinearLayout>
