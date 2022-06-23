@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MultiLingual Calculator</string>
+    <string name="cut">" साफ़"</string>
+    <string name="eight">८</string>
+    <string name="dot">.</string>
+    <string name="five">५</string>
+    <string name="four">४</string>
+    <string name="nine">९</string>
+    <string name="one">१</string>
+    <string name="seven">७</string>
+    <string name="six">६</string>
+    <string name="three">३</string>
+    <string name="two">२</string>
+    <string name="zero">०</string>
+    <string name="cancel">" रद्द करें"</string>
+    <string name="change_language">" भाषा बदलो"</string>
+</resources>

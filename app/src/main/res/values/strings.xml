@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">MultiLingual Calculator</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="zero">0</string>
+    <string name="dot">.</string>
+    <string name="equal" translatable="false">=</string>
+    <string name="minus" translatable="false">-</string>
+    <string name="multiply" translatable="false">x</string>
+    <string name="plus" translatable="false">+</string>
+    <string name="bracketopen" translatable="false">(</string>
+    <string name="bracketclose" translatable="false">)</string>
+    <string name="cut">C</string>
+    <string name="divide" translatable="false">/</string>
+    <string name="change_language">Change Language</string>
+    <string name="cancel">Cancel</string>
+
+
+    <!--Languages-->
+    <string name="en" translatable="false">English</string>
+    <string name="in" translatable="false">Indonesian (bahasa Indonesia)</string>
+    <string name="tr" translatable="false">Turkish (Türk)</string>
+    <string name="ar" translatable="false">Arabic (عربى)</string>
+    <string name="hi" translatable="false">Hindi (हिंदी)</string>
+    <string name="ru" translatable="false">Russian (русский)</string>
+    <string name="fr" translatable="false">French (Français)</string>
+    <string name="ta" translatable="false">Tamil (தமிழ்)</string>
+    <string name="backspace" translatable="false">backspace</string>
+
+</resources>

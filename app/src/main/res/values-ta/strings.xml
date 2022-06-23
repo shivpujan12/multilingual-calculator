@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MultiLingual Calculator</string>
+    <string name="zero">௦</string>
+    <string name="one">௧</string>
+    <string name="two">௨</string>
+    <string name="three">௩</string>
+    <string name="four">௪</string>
+    <string name="five">௫</string>
+    <string name="six">௬</string>
+    <string name="seven">௭</string>
+    <string name="eight">௮</string>
+    <string name="nine">௯</string>
+    <string name="cancel">ரத்து</string>
+    <string name="change_language">மொழியை மாற்று</string>
+    <string name="cut">தெளிவாக்கு</string>
+    <string name="dot">.</string>
+</resources>

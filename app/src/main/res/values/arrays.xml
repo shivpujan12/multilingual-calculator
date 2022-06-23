@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="languages_array">
+        <item>@string/en</item>
+        <item>@string/ar</item>
+        <item>@string/fr</item>
+<!--        <item>@string/in</item>-->
+<!--        <item>@string/ru</item>-->
+<!--        <item>@string/tr</item>-->
+        <item>@string/ta</item>
+        <item>@string/hi</item>
+    </string-array>
+
+    <string-array name="languages_code_array">
+        <item>"en"</item>
+        <item>"ar</item>
+        <item>"fr"</item>
+<!--        <item>"in"</item>-->
+<!--        <item>"ru"</item>-->
+<!--        <item>"tr"</item>-->
+        <item>"ta"</item>
+        <item>"hi"</item>
+    </string-array>
+</resources>

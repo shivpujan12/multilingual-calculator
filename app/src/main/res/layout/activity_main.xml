@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context=".MainActivity">
+
+    <!--Screen-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/num2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:autoSizeTextType="uniform"
+            android:layout_weight="0.333"
+            android:layout_marginTop="15dp"
+            android:gravity="right" />
+
+        <TextView
+            android:id="@+id/operationTxt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:autoSizeTextType="uniform"
+            android:gravity="right"
+            android:layout_weight="0.333" />
+
+        <TextView
+            android:id="@+id/num1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:autoSizeTextType="uniform"
+            android:gravity="right"
+            android:layout_weight="0.333" />
+
+    </LinearLayout>
+    <!--Line 1-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.12"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageButton
+            android:id="@+id/feedBack"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/opreation_selector_drawable"
+            android:fontFamily="@font/biryani_extrabold"
+            android:textSize="25sp"
+            android:src="@drawable/ic_feedback_black_24dp"/>
+
+        <ImageButton
+            android:id="@+id/translateTool"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/opreation_selector_drawable"
+            android:fontFamily="@font/biryani_extrabold"
+            android:src="@drawable/ic_translate_black_24dp"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/cut"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/opreation_selector_drawable"
+            android:fontFamily="@font/biryani_extrabold"
+            android:text="@string/cut"
+            android:textSize="30sp" />
+
+        <ImageButton
+            android:id="@+id/backspace"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/opreation_selector_drawable"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:src="@drawable/ic_backspace_black_24dp" />
+
+    </LinearLayout>
+    <!--Line2-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.12"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/one"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/number_selector_drawable"
+            android:fontFamily="@font/biryani"
+            android:onClick="clickerNum"
+            android:text="@string/one"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/two"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/number_selector_drawable"
+            android:fontFamily="@font/biryani"
+            android:onClick="clickerNum"
+            android:text="@string/two"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/three"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/number_selector_drawable"
+            android:fontFamily="@font/biryani"
+            android:onClick="clickerNum"
+            android:text="@string/three"
+            android:textSize="30sp" />
+
+
+        <Button
+            android:id="@+id/divide"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/opreation_selector_drawable"
+            android:fontFamily="@font/biryani_extrabold"
+            android:onClick="clickerOperation"
+            android:text="@string/divide"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+    <!--Line3-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.12"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/four"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/number_selector_drawable"
+            android:fontFamily="@font/biryani"
+            android:onClick="clickerNum"
+            android:text="@string/four"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/five"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/number_selector_drawable"
+            android:fontFamily="@font/biryani"
+            android:onClick="clickerNum"
+            android:text="@string/five"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/six"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/number_selector_drawable"
+            android:fontFamily="@font/biryani"
+            android:onClick="clickerNum"
+            android:text="@string/six"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/multiply"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/opreation_selector_drawable"
+            android:fontFamily="@font/biryani_extrabold"
+            android:onClick="clickerOperation"
+            android:text="@string/multiply"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+    <!--Line4-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.12"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/seven"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/number_selector_drawable"
+            android:fontFamily="@font/biryani"
+            android:text="@string/seven"
+            android:onClick="clickerNum"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/eight"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/number_selector_drawable"
+            android:fontFamily="@font/biryani"
+            android:onClick="clickerNum"
+            android:text="@string/eight"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/nine"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/number_selector_drawable"
+            android:fontFamily="@font/biryani"
+            android:onClick="clickerNum"
+            android:text="@string/nine"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/minus"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/opreation_selector_drawable"
+            android:fontFamily="@font/biryani_extrabold"
+            android:onClick="clickerOperation"
+            android:text="@string/minus"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+    <!--Line5-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.12"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/zero"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/number_selector_drawable"
+            android:fontFamily="@font/biryani"
+            android:onClick="clickerNum"
+            android:text="@string/zero"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/dot"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/number_selector_drawable"
+            android:fontFamily="@font/biryani"
+            android:onClick="clickerNum"
+            android:text="@string/dot"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/equal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/number_selector_drawable"
+            android:fontFamily="@font/biryani_extrabold"
+            android:text="@string/equal"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/plus"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@drawable/opreation_selector_drawable"
+            android:fontFamily="@font/biryani_extrabold"
+            android:onClick="clickerOperation"
+            android:text="@string/plus"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
