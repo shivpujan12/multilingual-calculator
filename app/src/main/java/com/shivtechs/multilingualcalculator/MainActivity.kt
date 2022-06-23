@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
     private var data = ""
     private lateinit var languages: Array<String>
     private lateinit var languageCodes: Array<String>
+
+    //This is shivpujan here!
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(LocaleHelper.onAttach(base))
     }
