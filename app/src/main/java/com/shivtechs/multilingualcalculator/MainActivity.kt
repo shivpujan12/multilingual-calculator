@@ -1,5 +1,6 @@
 package com.shivtechs.multilingualcalculator
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
@@ -12,14 +13,15 @@ import android.graphics.drawable.StateListDrawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.shivtechs.multilingualcalculator.databinding.ActivityMainBinding
+import javax.xml.transform.Result
 
 
 class MainActivity : AppCompatActivity() {
@@ -33,6 +35,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var languageCodes: Array<String>
     private lateinit var sp: SharedPreferences
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(LocaleHelper.onAttach(base))
     }
@@ -45,8 +49,14 @@ class MainActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
             )
         }
-        setContentView(R.layout.activity_main)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root;
+
+        setContentView(view)
         supportActionBar?.hide()
+
+
 
         sp = this@MainActivity.getSharedPreferences("calulator", Context.MODE_PRIVATE)
 
@@ -69,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         languages = resources.getStringArray(R.array.languages_array)
         languageCodes = resources.getStringArray(R.array.languages_code_array)
 
-        options.setOnClickListener {
+        binding.options.setOnClickListener {
             AlertDialog.Builder(this)
                 .setItems(arrayOf("Themes", "Give FeedBack", "Privacy Policy")) { _, i ->
                     when (i) {
@@ -114,7 +124,7 @@ class MainActivity : AppCompatActivity() {
                 }.show()
         }
 
-        translateTool.setOnClickListener {
+        binding.translateTool.setOnClickListener {
             AlertDialog.Builder(this)
                 .setTitle(R.string.change_language)
                 .setItems(languages) { _, i ->
@@ -133,23 +143,23 @@ class MainActivity : AppCompatActivity() {
                 .show()
         }
 
-        cut.setOnClickListener {
+        binding.cut.setOnClickListener {
             data = data.dropLast(1)
-            num1.text = num1.text.toString().dropLast(1)
+            binding.num1.text = binding.num1.text.toString().dropLast(1)
         }
 
-        cut.setOnLongClickListener {
+        binding.cut.setOnLongClickListener {
             data = ""
-            num1.text = ""
-            num2.text = ""
+            binding.num1.text = ""
+            binding.num2.text = ""
             num1data = 0.0
             num2data = 0.0
             result = 0.0
-            operationTxt.text = ""
+            binding.operationTxt.text = ""
             false
         }
 
-        equal.setOnClickListener {
+        binding.equal.setOnClickListener {
             equalFun()
             /*Thread {
                 Thread.sleep(2000)
@@ -163,27 +173,27 @@ class MainActivity : AppCompatActivity() {
             "default theme" -> {
                 functionPallet("", "", "#911a13", "#000000")
                 numPallet("num", "num", "#292828", "#000000")
-                backScreen.setBackgroundColor(Color.WHITE)
-                num1.setBackgroundColor(Color.WHITE)
-                num1.setTextColor(Color.parseColor("#1b1b1c"))
-                num2.setBackgroundColor(Color.WHITE)
-                num2.setTextColor(Color.parseColor("#1b1b1c"))
-                operationTxt.setBackgroundColor(Color.WHITE)
-                operationTxt.setTextColor(Color.parseColor("#1b1b1c"))
-                activityBackground.setBackgroundColor(Color.WHITE)
+                binding.backScreen.setBackgroundColor(Color.WHITE)
+                binding.num1.setBackgroundColor(Color.WHITE)
+                binding.num1.setTextColor(Color.parseColor("#1b1b1c"))
+                binding.num2.setBackgroundColor(Color.WHITE)
+                binding.num2.setTextColor(Color.parseColor("#1b1b1c"))
+                binding.operationTxt.setBackgroundColor(Color.WHITE)
+                binding.operationTxt.setTextColor(Color.parseColor("#1b1b1c"))
+                binding.activityBackground.setBackgroundColor(Color.WHITE)
                 sp.edit().putString("theme", "default theme").apply()
             }
             "Dark Red" -> {
                 functionPallet("#9c0b10", "#b02121", "#911a13", "#000000")
                 numPallet("#1b1b1c", "#292828", "#292828", "#000000")
-                backScreen.setBackgroundColor(Color.parseColor("#1b1b1c"))
-                num1.setBackgroundColor(Color.parseColor("#1b1b1c"))
-                num1.setTextColor(Color.WHITE)
-                num2.setBackgroundColor(Color.parseColor("#1b1b1c"))
-                num2.setTextColor(Color.WHITE)
-                operationTxt.setBackgroundColor(Color.parseColor("#1b1b1c"))
-                operationTxt.setTextColor(Color.WHITE)
-                activityBackground.setBackgroundColor(Color.parseColor("#1b1b1c"))
+                binding.backScreen.setBackgroundColor(Color.parseColor("#1b1b1c"))
+                binding.num1.setBackgroundColor(Color.parseColor("#1b1b1c"))
+                binding.num1.setTextColor(Color.WHITE)
+                binding.num2.setBackgroundColor(Color.parseColor("#1b1b1c"))
+                binding.num2.setTextColor(Color.WHITE)
+                binding.operationTxt.setBackgroundColor(Color.parseColor("#1b1b1c"))
+                binding.operationTxt.setTextColor(Color.WHITE)
+                binding.activityBackground.setBackgroundColor(Color.parseColor("#1b1b1c"))
                 sp.edit().putString("theme", "Dark Red").apply()
             }
         }
@@ -270,37 +280,37 @@ class MainActivity : AppCompatActivity() {
         pStrokeColor: String
     ) {
         changeTextColor(
-            options,
+            binding.options,
             ubkColor,
             R.drawable.ic_settings_black_24dp,
             R.drawable.ic_settings_white_24dp
         )
         changeTextColor(
-            translateTool,
+            binding.translateTool,
             ubkColor,
             R.drawable.ic_translate_black_24dp,
             R.drawable.ic_translate_white_24dp
         )
         changeTextColor(
-            backspace,
+            binding.backspace,
             ubkColor,
             R.drawable.ic_backspace_black_24dp,
             R.drawable.ic_backspace_white_24dp
         )
-        changeTextColor(cut, ubkColor, 0, 0)
-        changeTextColor(divide, ubkColor, 0, 0)
-        changeTextColor(multiply, ubkColor, 0, 0)
-        changeTextColor(minus, ubkColor, 0, 0)
-        changeTextColor(plus, ubkColor, 0, 0)
+        changeTextColor(binding.cut, ubkColor, 0, 0)
+        changeTextColor(binding.divide, ubkColor, 0, 0)
+        changeTextColor(binding.multiply, ubkColor, 0, 0)
+        changeTextColor(binding.minus, ubkColor, 0, 0)
+        changeTextColor(binding.plus, ubkColor, 0, 0)
 
-        changeTheme(options, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
-        changeTheme(translateTool, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
-        changeTheme(cut, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
-        changeTheme(backspace, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
-        changeTheme(divide, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
-        changeTheme(multiply, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
-        changeTheme(minus, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
-        changeTheme(plus, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.options, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.translateTool, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.cut, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.backspace, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.divide, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.multiply, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.minus, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.plus, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
     }
 
     private fun numPallet(
@@ -309,30 +319,30 @@ class MainActivity : AppCompatActivity() {
         uStrokeColor: String,
         pStrokeColor: String
     ) {
-        changeTheme(one, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
-        changeTheme(two, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
-        changeTheme(three, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
-        changeTheme(four, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
-        changeTheme(five, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
-        changeTheme(six, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
-        changeTheme(seven, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
-        changeTheme(eight, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
-        changeTheme(nine, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
-        changeTheme(zero, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
-        changeTheme(dot, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
-        changeTheme(equal, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.one, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.two, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.three, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.four, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.five, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.six, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.seven, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.eight, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.nine, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.zero, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.dot, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
+        changeTheme(binding.equal, ubkColor, pbkColor, uStrokeColor, pStrokeColor)
 
-        changeTextColor(one, ubkColor, 0, 0)
-        changeTextColor(two, ubkColor, 0, 0)
-        changeTextColor(three, ubkColor, 0, 0)
-        changeTextColor(four, ubkColor, 0, 0)
-        changeTextColor(five, ubkColor, 0, 0)
-        changeTextColor(six, ubkColor, 0, 0)
-        changeTextColor(seven, ubkColor, 0, 0)
-        changeTextColor(eight, ubkColor, 0, 0)
-        changeTextColor(nine, ubkColor, 0, 0)
-        changeTextColor(dot, ubkColor, 0, 0)
-        changeTextColor(zero, ubkColor, 0, 0)
+        changeTextColor(binding.one, ubkColor, 0, 0)
+        changeTextColor(binding.two, ubkColor, 0, 0)
+        changeTextColor(binding.three, ubkColor, 0, 0)
+        changeTextColor(binding.four, ubkColor, 0, 0)
+        changeTextColor(binding.five, ubkColor, 0, 0)
+        changeTextColor(binding.six, ubkColor, 0, 0)
+        changeTextColor(binding.seven, ubkColor, 0, 0)
+        changeTextColor(binding.eight, ubkColor, 0, 0)
+        changeTextColor(binding.nine, ubkColor, 0, 0)
+        changeTextColor(binding.dot, ubkColor, 0, 0)
+        changeTextColor(binding.zero, ubkColor, 0, 0)
     }
 
     private fun getContrastColor(colorIntValue: Int): Int {
@@ -347,17 +357,17 @@ class MainActivity : AppCompatActivity() {
 
         var resultOnScreenVal = ""
 
-        if (num1.text.isNotEmpty() && data != "") {
+        if (binding.num1.text.isNotEmpty() && data != "") {
             num1data = data.toDouble()
         } else {
             Toast.makeText(this@MainActivity, "Please second number", Toast.LENGTH_LONG).show()
         }
 
 
-        if (data != "" && operationTxt.text.isNotEmpty()) {
+        if (data != "" && binding.operationTxt.text.isNotEmpty()) {
             // num1 op num2
             result = 0.0
-            when (operationTxt.text.toString()) {
+            when (binding.operationTxt.text.toString()) {
                 "/" -> {
                     //check for zero division
                     //if(num1data==0.0) {resultOnScreenVal = "Not defined"}
@@ -388,17 +398,17 @@ class MainActivity : AppCompatActivity() {
             }
 
             if (resultByOpertion && operationAfterResult != "") {
-                num2.text = resultOnScreenVal
+                binding.num2.text = resultOnScreenVal
                 num2data = result
-                num1.text = ""
+                binding.num1.text = ""
                 num1data = 0.0
-                operationTxt.text = operationAfterResult
+                binding.operationTxt.text = operationAfterResult
                 operationAfterResult = ""
                 resultByOpertion = false
             } else {
-                num1.text = resultOnScreenVal //put it on screen
-                num2.text = ""
-                operationTxt.text = ""
+                binding.num1.text = resultOnScreenVal //put it on screen
+                binding.num2.text = ""
+                binding.operationTxt.text = ""
             }
             data = ""
         }
@@ -427,31 +437,31 @@ class MainActivity : AppCompatActivity() {
                     ).show()
             }
         }
-        num1.append((v as Button).text.toString())
+        binding.num1.append((v as Button).text.toString())
     }
 
     fun clickerOperation(v: View) {
 
-        if (num1.text.isNotEmpty() && num2.text.isNotEmpty()) {
+        if (binding.num1.text.isNotEmpty() && binding.num2.text.isNotEmpty()) {
             resultByOpertion = true
             operationAfterResult = (v as Button).text.toString()
             equalFun()
         }
 
-        if (num2.text.isNotEmpty() && num1.text.isEmpty()) {
-            operationTxt.text = (v as Button).text.toString()
+        if (binding.num2.text.isNotEmpty() && binding.num1.text.isEmpty()) {
+            binding.operationTxt.text = (v as Button).text.toString()
         }
 
-        if (num2.text.isEmpty() && num1.text.isNotEmpty()) {
+        if (binding.num2.text.isEmpty() && binding.num1.text.isNotEmpty()) {
             if (result != 0.0 && data == "") {
                 data = result.toString()
             }
             if (data != "") {
-                operationTxt.text = (v as Button).text.toString()
-                num2.text = num1.text
+                binding.operationTxt.text = (v as Button).text.toString()
+                binding.num2.text = binding.num1.text
                 num2data = data.toDouble()
                 data = ""
-                num1.text = ""
+                binding.num1.text = ""
             } else {
                 Toast.makeText(
                     this@MainActivity,
